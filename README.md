@@ -11,7 +11,7 @@ or, if you use conda
 conda install -c potassco clingo
 ```
 
-## Small example
+## Small example (load_ground_solve.py)
 
 ```python
 # load_ground_solve.py
