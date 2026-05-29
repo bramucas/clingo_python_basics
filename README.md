@@ -1,6 +1,10 @@
 # clingo_python_basics
 Basic examples of the clingo Python API
 
+## First
+
+This is **python3 only**.
+
 ## Installation of clingo
 
 ```sh
