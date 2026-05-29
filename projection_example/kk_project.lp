@@ -1,0 +1,1 @@
+#project s(curso2, A).
