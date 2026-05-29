@@ -1,18 +1,10 @@
 # clingo_python_basics
 Basic examples of the clingo Python API
 
-## First
-
-This is **python3 only**.
-
 ## Installation of clingo
 
 ```sh
 python -m pip install clingo
-```
-or, if you use conda
-```sh
-conda install -c potassco clingo
 ```
 
 ## Example Structure
