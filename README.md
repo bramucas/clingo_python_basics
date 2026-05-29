@@ -1,5 +1,5 @@
 # clingo_python_basics
-Basic stuff about clingo API
+Basic examples of the clingo Python API
 
 ## Installation of clingo
 
@@ -11,44 +11,26 @@ or, if you use conda
 conda install -c potassco clingo
 ```
 
-## Small example (load_ground_solve.py)
+## Example Structure
 
-```python
-# load_ground_solve.py
+This repository is organized into folders covering different aspects of the clingo Python API:
 
-import sys
-import clingo
-
-# Reads the program given by command line
-with open(sys.argv[1], "r") as f:
-    ASP_program = f.read()
-
-# Control object is a low-level interface for controlling the grounding/solving process.
-ctl = clingo.Control(
-    arguments=['-n', '0'],  # Here you can write the arguments you would pass to clingo by command line.
-)
-
-ctl.add("base", [], ASP_program)  # Adds the program to the control object.
-
-ctl.ground([("base", [])])  # Grounding...
-
-# Solving...
-with ctl.solve(yield_=True) as solution_iterator:
-        nanswer=1
-        for model in solution_iterator:
-            # Model is an instance of clingo.solving.Model class 
-            # Reference: https://potassco.org/clingo/python-api/current/clingo/solving.html#clingo.solving.Model
-            print(f'Answer {nanswer}')
-            print(model)
-            nanswer+=1
-```
+- **basic_control** - Basic Control usage: load, ground, and solve ASP programs
+- **model_exploration** - How to explore and filter atoms in answer set models
+- **projection** - Using the #project directive for answer set projection
+- **embedded_python** - Calling Python functions from ASP using @-syntax
+- **multishot_solving** - Incremental grounding and solving (multi-shot ASP)
 
 ## Usage
 
+Each folder contains a README with specific usage instructions. For example:
+
 ```sh
+cd basic_control
 python load_ground_solve.py basic_prog.lp
 ```
 
 ```sh
-python exploring_models.py basic_prog.lp
+cd model_exploration
+python exploring_models.py ../basic_control/basic_prog.lp
 ```
